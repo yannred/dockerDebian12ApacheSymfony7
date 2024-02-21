@@ -39,6 +39,8 @@ RUN  apt clean && apt update && apt install -y \
         cron \
 #        python3-pip \
         nodejs npm \
+#        php-xml \
+#        php-curl \
         && apt clean \
         && rm -rf /var/lib/apt/lists/*
 
