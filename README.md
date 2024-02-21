@@ -9,8 +9,8 @@ Generate a docker image based on Php 8.3.2 and Debian Bookworm for Symfony 7
 
 ## Publish on Docker hub
 ```bash
-docker login -u "ityannred" docker.io
-docker build -t ityannred/debian12-apache-symfony7 .
-docker tag debian12-apache-symfony7:latest ityrannred/debian12-apache-symfony7:latest
-docker push ityrannred/debian12-apache-symfony7:latest
+docker login -u "ityannred" docker.io && \
+docker build -t ityannred/debian12-apache-symfony7 . && \
+docker tag debian12-apache-symfony7:latest ityrannred/debian12-apache-symfony7:latest && \
+docker push ityannred/debian12-apache-symfony7:latest
 ```
