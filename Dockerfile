@@ -79,6 +79,13 @@ COPY --from=composer:2.2 /usr/bin/composer /usr/local/bin/composer
 #RUN a2enmod ssl
 #EXPOSE 443
 
+
+# Symfony CLI
+RUN wget https://get.symfony.com/cli/installer -O - | bash
+RUN curl -sS https://get.symfony.com/cli/installer | bash
+RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+
+
 # Start
 COPY sh/start.sh /tmp/start.sh
 RUN chmod +x /tmp/start.sh
