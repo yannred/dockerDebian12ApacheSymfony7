@@ -88,7 +88,7 @@ RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
 # Start
 COPY sh/start.sh /tmp/start.sh
-RUN chmod +x /tmp/start.sh
+RUN chmod 777 /tmp/start.sh
 CMD ["/tmp/start.sh"]
 
 # Locales

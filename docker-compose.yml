@@ -7,7 +7,7 @@ services:
     ports:
       - "8032:80"
     volumes:
-      - /home/yann/docker/firstFm:/home/web
+      - /home/yann/docker/dirmap/sources/music-intelligence-fm:/home/web
     #restart: always
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
