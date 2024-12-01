@@ -1,8 +1,8 @@
 FROM php:8.3.14-apache-bookworm
 
-ENV APACHE_DOCUMENT_ROOT /home/web
-ENV TZ "Europe/Paris"
-ENV PHP_CHARSET "utf-8"
+ENV APACHE_DOCUMENT_ROOT=/home/web
+ENV TZ="Europe/Paris"
+ENV PHP_CHARSET="utf-8"
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
@@ -95,12 +95,12 @@ CMD ["/tmp/start.sh"]
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen
-ENV LC_ALL fr_FR.UTF-8
-ENV LANG fr_FR.UTF-8
-ENV LANGUAGE fr_FR:fr
+ENV LC_ALL=fr_FR.UTF-8
+ENV LANG=fr_FR.UTF-8
+ENV LANGUAGE=fr_FR:fr
 
 # Python
-#ENV PYTHONUNBUFFERED 1
+#ENV PYTHONUNBUFFERED=1
 #RUN pip3 install --no-cache --upgrade pip setuptools
 
 WORKDIR /home/web/
