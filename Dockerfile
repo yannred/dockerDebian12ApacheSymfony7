@@ -1,4 +1,4 @@
-FROM php:8.3.2-apache-bookworm
+FROM php:8.3.14-apache-bookworm
 
 ENV APACHE_DOCUMENT_ROOT /home/web
 ENV TZ="Europe/Paris"
