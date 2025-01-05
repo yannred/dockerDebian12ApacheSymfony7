@@ -23,6 +23,7 @@ RUN  apt clean && apt update && apt install -y \
         libxslt-dev \
         libbz2-dev \
         libssl-dev \
+        libcurl4-openssl-dev \
         pdftk \
         vim \
         wget \
@@ -40,7 +41,6 @@ RUN  apt clean && apt update && apt install -y \
 #        python3-pip \
         nodejs npm \
 #        php-xml \
-#        php-curl \
         && apt clean \
         && rm -rf /var/lib/apt/lists/*
 
@@ -52,7 +52,8 @@ RUN  apt clean && apt update && apt install -y \
 
 ## Php extensions
 RUN docker-php-ext-configure gd --with-jpeg --with-freetype
-RUN docker-php-ext-install pdo_mysql gettext bcmath calendar exif mysqli pcntl shmop sockets sysvmsg sysvsem sysvshm gd zip xsl bz2 soap
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install pdo_mysql gettext bcmath calendar exif mysqli pcntl shmop sockets sysvmsg sysvsem sysvshm gd zip xsl bz2 soap curl intl
 RUN pecl install xdebug-3.3.1 && docker-php-ext-enable xdebug
 RUN pecl install yaml && docker-php-ext-enable yaml
 RUN pecl install igbinary && docker-php-ext-enable igbinary
